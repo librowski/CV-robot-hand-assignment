@@ -1,21 +1,17 @@
-%%
-% grabImage = 'CMD_GRAB_IMAGE';
-% 
-% image = RV3SB_client(grabImage);
+% GETTING 2D POSITIONS FROM IMAGE %
+
 clear all;
 [imname, pathname] = uigetfile({'*.jpg;*.tif;*.png;*.gif','All Image Files';...
           '*.*','All Files' },'Choose an image');
 path = fullfile(pathname,imname);
 image = imread(path);
 
-
 figure
 imshow(image)
 [x,y] = getpts;
-XY(:,1) = x;
-XY(:,2) = y;
-save('xy.mat', 'XY');
+points2D(:,1) = x;
+points2D(:,2) = y;
 
-%%
-clear all;
-load('xy.mat');
+M = calibrateCamera(points2D, points3D);
+
+C = getCameraCenter(M);
