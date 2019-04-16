@@ -11,7 +11,7 @@ points3D = [
     [580 -125 50];
     [630 -175 50];
 ];
-
+  
 % GETTING 2D POSITIONS FROM IMAGE %
 [imname, pathname] = uigetfile({'*.jpg;*.jpeg;*.tif;*.png;*.gif','All Image Files';...
           '*.*','All Files' },'Choose an image');
@@ -21,12 +21,11 @@ image = imread(path);
 figure
 imshow(image)
 [x,y] = getpts;
-points2D(:,1) = x;
+points2D(1, :) = x;
 points2D(:,2) = y;
 
 M = calibrateCamera(points2D, points3D);
 
 C = getCameraCenter(M);
-
 
 

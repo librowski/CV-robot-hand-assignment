@@ -1,6 +1,0 @@
-function [cameraCenter] = getCameraCenter(M)
-    Q = M(:, 1:end-1);
-    
-    C = 
-end
-
