@@ -1,0 +1,6 @@
+function [position] = getPointCoordinates(p1, p2, Z)
+    v = p2 - p1;
+    
+    t = 
+end
+
