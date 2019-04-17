@@ -3,7 +3,7 @@
 % 
 % image = RV3SB_client(grabImage);
 clear all;
-[imname, pathname] = uigetfile({'*.jpg;*.tif;*.png;*.gif','All Image Files';...
+[imname, pathname] = uigetfile({'*.jpg;*.jpeg;*.tif;*.png;*.gif','All Image Files';...
           '*.*','All Files' },'Выберите изображение');
 path = fullfile(pathname,imname);
 image = imread(path);
@@ -17,5 +17,5 @@ XY(:,2) = y;
 save('xy.mat', 'XY');
 
 %%
-clear all;
-load('xy.mat');
+% clear all;
+% load('xy.mat');
