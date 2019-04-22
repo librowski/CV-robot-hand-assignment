@@ -16,7 +16,7 @@ CUBE_OPTIONS = ["Red"; "Blue"; "Green"; "Black"];
 
 CUBE_POSITIONS = [];
 
-TOWER_HEIGHT = 80; % FIRST CUBE HEIGHT (50) + MIDDLE OF NEXT CUBE (25) + SOME SPACE (5)
+TOWER_HEIGHT = 85; % FIRST CUBE HEIGHT (50) + (25) MIDDLE OF NEXT CUBE +
 
 %% GETTING 2D POSITIONS FROM IMAGE %
 [imname, pathname] = uigetfile({'*.jpg;*.jpeg;*.tif;*.png;*.gif','All Image Files';...
