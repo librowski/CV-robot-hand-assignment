@@ -7,7 +7,7 @@ image = imread(path);
 
 %%
 level = graythresh(image);
-bwl = im2bw(image, (level ^ 1.5) * 2.5);
+bwl = im2bw(image, 0.9);
 bwl = bwareafilt(bwl,1);
 [rows, columns] = find(bwl);
 row1 = min(rows);
@@ -22,16 +22,20 @@ imR = squeeze(im(:,:,1));
 imG = squeeze(im(:,:,2));
 imB = squeeze(im(:,:,3));
 
-imBinaryR = im2bw(imR,(level ^ 1.76) * 1.66);
-imBinaryG = im2bw(imG,(level ^ 1.76) * 1.66);
-imBinaryB = im2bw(imB,(level ^ 1.76) * 1.66);
+imBinaryR = im2bw(imR,0.5);
+imBinaryG = im2bw(imG,0.5);
+imBinaryB = im2bw(imB,0.5);
 
 imBinary = imcomplement(imBinaryR&imBinaryG&imBinaryB);
 %%
-cubes = bwpropfilt(imBinary,'Eccentricity',[0 0.7]);
+% s = size(image);
+% cubes = bwareafilt(imBinary, [fix(s(1) * s(2) ./ 400) fix(s(1) * s(2) ./150)]);
 
-cubes = bwareafilt(cubes, 4);
-%imshow(cubes);
+%%
+cubes = bwpropfilt(imBinary,'Eccentricity',[0.1 0.7]);
+
+%cubes = bwareafilt(cubes, 4);
+imshow(cubes);
 %%
 red = imBinaryR - (imBinaryG + imBinaryB);
 red(red < 0) = 0;
