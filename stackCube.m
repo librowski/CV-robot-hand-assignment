@@ -9,11 +9,15 @@ function stackCube(cubeXY, towerXY, towerHeight)
     
     %% DANCE
     % RVS3B_client(gripOpen);
+    disp("I open the grip");
     % RVS3B_client(moveTo, robotPoint(cubeXY(1), cubeXY(2), 35);
+    disp("I move to the point: ");
+    disp(robotPoint(cubeXY(1), cubeXY(2), 35));
     % RVS3B_client(gripClose);
+    disp("I close the grip");
     % RVS3B_client(moveTo, robotPoint(towerXY(1), towerXY(2), towerHeight);
-    % RVS3B_client(gripOpen);
-    
+    disp("I move to the point: ")
+    disp(robotPoint(towerXY(1), towerXY(2), towerHeight));
 end
 
 
